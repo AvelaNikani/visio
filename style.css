@@ -17,7 +17,7 @@ a {
 ul {
     box-sizing: border-box;
 }
-.site-header {
+.visio-header {
     height: 175px;
     position: fixed;
     width: 100%;
@@ -27,34 +27,40 @@ ul {
     transition: 0.3s;
     z-index: 50;
 }
-.site-header .inner .site-logo {
+.visio-header .header-content .logo {
     float: left;
     margin-top: -5px;
 }
-.site-header .inner .site-logo img {
+.visio-header .header-content .logo img {
     width: 220px;
     transition: 0.3s;
 }
-.in-page-sub-menu {
+.space {
     overflow: hidden;
     float: left;
     margin-left: 50px;
 }
-.site-header .inner .open-main-nav {
+.visio-header .header-content .menu {
     float: right;
     margin-top: 15px;
     width: 30px;
     cursor: pointer;
     transition: 0.3s;
 }
-main {
+.visio-header .header-content.menu span {
+    display: block;
+    height: 3px;
+    background-color: #061C2C;
+    margin-bottom: 8px;
+}
+.content {
     display: block;
 }
-.main-slider {
+.carousel {
     position: relative;
     margin-bottom: 90px;
 }
-.main-slider .inner {
+.carousel .carousel-content {
     max-width: 1620px;
     width: 100%;
     margin: 0 auto;
@@ -62,13 +68,13 @@ main {
     z-index: 10;
     overflow: hidden;
 }
-.main-slider .inner > .next-slide {
+.carousel .carousel-content .arrow {
     position: absolute;
     z-index: 20;
     width: 101px;
     height: 118px;
     display: block;
-    background-image: url(images/slider-next.svg);
+    background-image: url(/assets/slider-next.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: right center;
@@ -77,13 +83,13 @@ main {
     margin-top: -59px;
     cursor: pointer;
 }
-.main-slider .inner ul {
+.carousel .carousel-content ul {
     margin: 0;
     padding: 0;
     display: block;
     overflow: hidden;
 }
-.main-slider .inner ul li {
+.carousel .carousel-content ul li {
     height: 100%;
     width: 100%;
     display: block;
@@ -94,27 +100,27 @@ main {
     overflow: hidden;
     transition: 1s;
 }
-.main-slider .inner ul li.active {
+.carousel .carousel-content ul li.active {
     position: relative;
     left: 0;
     transition: 1s;
     z-index: 8;
 }
-.main-slider .inner ul li.next {
+.carousel .carousel-content ul li.next {
     left: 100%;
     transition: 1s;
     transition-property: left;
     transition-duration: 0s;
     z-index: 2;
 }
-.main-slider .inner ul li.prev {
+.carousel .carousel-content ul li.prev {
     left: -100%;
     transition: 1s;
     transition-property: left;
     transition-duration: 1s;
     z-index: 4;
 }
-.main-slider .inner ul li h3 {
+.carousel .carousel-content ul li h3 {
     left: -100%;
     top: 50%;
     margin-top: -60px;
@@ -132,11 +138,11 @@ main {
     transition-property: left;
     transition-duration: 0.6s;
 }
-.main-slider .inner ul li img {
+.carousel .carousel-content ul li img {
     display: block;
     width: 100%;
 }
-.main-slider .inner .pagination {
+.carousel .carousel-content .page-icons {
     position: absolute;
     display: block;
     right: 60px;
@@ -144,8 +150,8 @@ main {
     z-index: 10;
     text-align: center;
 }
-.main-slider .inner .pagination span {
-    background-image: url(images/slider-dots.svg);
+.carousel .carousel-content .page-icons span {
+    background-image: url(/assets/slider-dots.svg);
     width: 22px;
     height: 22px;
     display: inline-block;
@@ -154,21 +160,21 @@ main {
     background-position: center;
     margin: 0 1px;
 }
-.main-slider .inner .pagination span.active {
+.carousel .carousel-content .page-icons span.active {
     opacity: 0.39;
     transform: rotate(160deg);
 }
-.home-intro {
+.description {
     padding: 0 20px;
     margin-bottom: 90px;
 }
-.home-intro .inner {
+.description .description-content {
     max-width: 1500px;
     width: 100%;
     margin: 0 auto;
     overflow: hidden;
 }
-.home-intro .inner p {
+.description .description-content p {
     width: 60%;
     display: block;
     font-size: 24px;
@@ -177,32 +183,32 @@ main {
     color: #061C2C;
     float: left;
 }
-.home-intro .inner .animate-logo {
+.description .description-content .distructed-logo {
     float: right;
     width: 416px;
     height: 42px;
-    background-image: url(images/asset32.svg);
+    background-image: url(/assets/asset32.svg);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     margin-top: 34px;
 }
-.home-ctas {
+.about-links {
     padding: 0 20px;
     margin-bottom: 110px;
 }
-.home-ctas .inner {
+.about-links .about-links_content {
     max-width: 1500px;
     width: 100%;
     margin: 0 auto;
 }
-.home-ctas .inner .cta-blocks {
+.about-links .about-links_content .cards {
     margin: 0 -12px 48px;
     padding: 0;
     display: block;
     height: 200px;
 }
-.home-ctas .inner .cta-blocks li {
+.about-links .about-links_content .cards li {
     float: left;
     width: 33.33333%;
     margin: 0;
@@ -210,32 +216,32 @@ main {
     height: 200px;
     display: inline;
 }
-.home-ctas .inner .cta-blocks li a {
+.about-links .about-links_content .cards li a {
     display: block;
     height: 100%;
     background-color: #061C2C;
     position: relative;
     padding: 98px 0 0 32px;
-    background-image: url(images/asset2.svg);
+    background-image: url(/assets/asset2.svg);
     background-repeat: no-repeat;
     background-position: top 31px left 32px;
     color: #fff;
     text-decoration: none;
 }
-.home-ctas .inner .sub-links {
+.about-links .about-links_content .specific-links {
     display: block;
     margin: 0 -12px;
     padding: 0;
     overflow: hidden;
 }
-.home-ctas .inner .sub-links li {
+.about-links .about-links_content .specific-links li {
     float: left;
     display: inline;
     margin: 0;
     width: 16.6666666%;
     padding: 0 12px;
 }
-.home-ctas .inner .sub-links li a {
+.about-links .about-links_content .specific-links li a {
     display: block;
     height: 38px;
     line-height: 38px;
@@ -248,5 +254,5 @@ main {
     color: #fff;
     background-position: right 15px center;
     background-repeat: no-repeat;
-    background-image: url(images/asset3.svg);
+    background-image: url(/assets/asset3.svg);
 }
