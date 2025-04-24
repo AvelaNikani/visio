@@ -29,3 +29,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Optional: Auto-slide every 5 seconds
     setInterval(() => goToSlide(currentSlide + 1), 5000);
 });
+
+function updateCarousel() {
+    const translateValue = -((currentSlide * 100) / slideCount) + '%';
+    track.css('transform', `translateX(${translateValue})`);
+    pagination.removeClass('active');
+    pagination.eq(currentSlide).addClass('active');
+}
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slideCount;
+    updateCarousel();
+}
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+    updateCarousel();
+}
+//arrow controls
+$('.carousel-btn.next').click(nextSlide);
+$('.carousel-btn.prev').click(prevSlide);
+// Add click handler for pagination dots
+pagination.click(function () {
+    currentSlide = $(this).index();
+    updateCarousel();
+});

@@ -27,30 +27,38 @@ ul {
     transition: 0.3s;
     z-index: 50;
 }
+.visio-header .header-content {
+    max-width: 1620px;
+    margin: 0 auto;
+    padding: 60px 60px 0;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s;
+}
 .visio-header .header-content .logo {
     float: left;
-    margin-top: -5px;
+    margin-top: 8px;
 }
 .visio-header .header-content .logo img {
     width: 220px;
     transition: 0.3s;
 }
-.space {
+.visio-header .header-content .space {
     overflow: hidden;
     float: left;
     margin-left: 50px;
 }
 .visio-header .header-content .menu {
     float: right;
-    margin-top: 15px;
+    margin-top: 13px;
     width: 30px;
     cursor: pointer;
     transition: 0.3s;
 }
-.visio-header .header-content.menu span {
+.visio-header .header-content .menu span {
     display: block;
     height: 3px;
-    background-color: #061C2C;
+    background-color: black;
     margin-bottom: 8px;
 }
 .content {
@@ -255,4 +263,175 @@ ul {
     background-position: right 15px center;
     background-repeat: no-repeat;
     background-image: url(/assets/asset3.svg);
+}
+/* Tablet Breakpoint (1024px and below) */
+@media (max-width: 1024px) {
+    body {
+        padding-top: 140px;
+    }
+    
+    .visio-header {
+        height: 140px;
+    }
+    
+    .visio-header .header-content {
+        padding: 40px 40px 0;
+    }
+    
+    .visio-header .header-content .logo img {
+        width: 180px;
+    }
+    
+    .description .description-content p {
+        width: 100%;
+        float: none;
+        margin-bottom: 40px;
+    }
+    
+    .description .description-content .distructed-logo {
+        float: none;
+        margin: 0 auto;
+    }
+    
+    .about-links .about-links_content .cards li {
+        width: 50%;
+        margin-bottom: 24px;
+    }
+    
+    .about-links .about-links_content .specific-links li {
+        width: 33.33333%;
+        margin-bottom: 12px;
+    }
+}
+
+/* Small Tablet Breakpoint (768px and below) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 100px;
+    }
+    
+    .visio-header {
+        height: 100px;
+    }
+    
+    .visio-header .header-content {
+        padding: 20px 20px 0;
+    }
+    
+    .visio-header .header-content .space {
+        margin-left: 20px;
+    }
+    
+    .carousel .carousel-content ul li h3 {
+        height: 80px;
+        line-height: 80px;
+        margin-top: -40px;
+        font-size: 18px;
+        padding-left: 30px;
+        padding-right: 50px;
+    }
+    
+    .description .description-content p {
+        font-size: 20px;
+        line-height: 32px;
+    }
+    
+    .about-links .about-links_content .cards {
+        height: auto;
+    }
+    
+    .about-links .about-links_content .cards li {
+        width: 100%;
+        height: 160px;
+    }
+    
+    .about-links .about-links_content .specific-links li {
+        width: 50%;
+    }
+}
+
+/* Mobile Breakpoint (480px and below) */
+@media (max-width: 480px) {
+    body {
+        padding-top: 80px;
+    }
+    
+    .visio-header {
+        height: 80px;
+    }
+    
+    .visio-header .header-content .logo img {
+        width: 100px;
+    }
+    .visio-header .header-content .menu {
+        float: right;
+        margin-top: 10px;
+        width: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .carousel {
+        position: relative;
+        margin-bottom: 10px;
+    }
+    
+    .carousel .carousel-content .arrow {
+        width: 45px;
+        height: 40px;
+        margin-top: -20px;
+    }
+    
+    .carousel .carousel-content ul li h3 {
+        height: 35px;
+        line-height: 35px;
+        margin-top: -12px;
+        font-size: 10px;
+        padding-left: 325px;
+        padding-right: 10px;
+    }
+    .carousel .carousel-content .page-icons {
+        position: absolute;
+        display: block;
+        right: 35px;
+        bottom: 5px;
+        z-index: 10;
+        text-align: center;
+    }
+    .carousel .carousel-content .page-icons span {
+        background-image: url(/assets/slider-dots.svg);
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 0 1px;
+    }
+    .description {
+        padding: 0 20px;
+        margin-bottom: 0px;
+    }
+    .description .description-content p {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    
+    .description .description-content .distructed-logo {
+        width: 250px;
+        height: 32px;
+    }
+    /* .about-links {
+        padding: 0 20px;
+        margin-bottom: 110px;
+    } */
+    
+    .about-links .about-links_content .cards li {
+        height: 140px;
+        padding: 70px 0 0 20px;
+        background-position: top 20px left 20px;
+    }
+    
+    .about-links .about-links_content .specific-links li {
+        width: 100%;
+    }
 }
