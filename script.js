@@ -1,54 +1,54 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.getElementById('nav-menu');
-
-    hamburger.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-    });
-
-    // Slider Functionality
-    const slider = document.querySelector('.slider');
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
+$(document).ready(function() {
+    // Cache DOM elements
+    const $carousel = $('.carousel-content');
+    const $slides = $carousel.find('ul li');
+    const $dots = $carousel.find('.page-icons span');
+    const totalSlides = $slides.length;
     let currentSlide = 0;
-    const totalSlides = slides.length;
-
-    function goToSlide(index) {
-        if (index >= totalSlides) currentSlide = 0;
-        else if (index < 0) currentSlide = totalSlides - 1;
-        else currentSlide = index;
-
-        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    // Initialize carousel
+    function initCarousel() {
+        $slides.removeClass('active next prev');
+        $slides.eq(currentSlide).addClass('active');
+        $slides.eq((currentSlide + 1) % totalSlides).addClass('next');
+        $slides.eq((currentSlide - 1 + totalSlides) % totalSlides).addClass('prev');
+        
+        $dots.removeClass('active');
+        $dots.eq(currentSlide).addClass('active');
     }
-
-    nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
-    prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
-
-    // Optional: Auto-slide every 5 seconds
-    setInterval(() => goToSlide(currentSlide + 1), 5000);
-});
-
-function updateCarousel() {
-    const translateValue = -((currentSlide * 100) / slideCount) + '%';
-    track.css('transform', `translateX(${translateValue})`);
-    pagination.removeClass('active');
-    pagination.eq(currentSlide).addClass('active');
-}
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slideCount;
-    updateCarousel();
-}
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-    updateCarousel();
-}
-//arrow controls
-$('.carousel-btn.next').click(nextSlide);
-$('.carousel-btn.prev').click(prevSlide);
-// Add click handler for pagination dots
-pagination.click(function () {
-    currentSlide = $(this).index();
-    updateCarousel();
+    
+    // Go to specific slide
+    function goToSlide(index) {
+        currentSlide = index;
+        initCarousel();
+    }
+    
+    // Next slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        initCarousel();
+    }
+    
+    // Previous slide
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        initCarousel();
+    }
+    
+    // Arrow click handler
+    $('.arrow').click(function() {
+        nextSlide();
+    });
+    
+    // Dot navigation click handler
+    $dots.click(function() {
+        const slideIndex = $(this).attr('rel') - 1;
+        goToSlide(slideIndex);
+    });
+    
+    // Initialize on page load
+    initCarousel();
+    
+    // Optional: Auto-advance slides every 5 seconds
+    setInterval(nextSlide, 5000);
 });
